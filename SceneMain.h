@@ -31,6 +31,7 @@ private:
 	int m_hShotGraphic;
 	// ƒvƒŒƒCƒ„[
 	Player m_player;
+
 	// “G
 	Enemy m_enemy;
 
