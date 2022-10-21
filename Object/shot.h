@@ -18,17 +18,25 @@ public:
 	void update();
 	// 表示
 	void draw();
+	
+	//弾の進行方向決定
+	void setVec(Vec2 vec) { m_vec = vec; }
+
 
 	//存在するか
 	bool isExist() const { return m_isExist; }
 	void setExist(bool isExist) { m_isExist = isExist; }
 
+	//プレイヤーが打った弾か
+	bool isPlayerShot() const { return m_isPlayerShot; }
+	void setPlayerShot(bool isPlayer) { m_isPlayerShot = isPlayer; }
+
 	//敵との当たり判定
 	bool isCol(Enemy& enemy);
 	
-
-
 private:
+
+
 	// グラフィックハンドル
 	int m_handle;
 
@@ -39,4 +47,6 @@ private:
 	Vec2	m_pos;
 	// 移動
 	Vec2	m_vec;
+	//プレイヤーが撃った弾かどうか
+	bool m_isPlayerShot;
 };

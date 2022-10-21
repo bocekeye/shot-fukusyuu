@@ -28,6 +28,7 @@ public:
 	Vec2 getPos() const { return m_pos; }
 
 private:
+
 	SceneMain* m_pMain;
 
 	int m_handle;

@@ -7,7 +7,8 @@ Shot::Shot() :
 	m_handle(-1), 
 	m_isExist(false),
 	m_pos(100.0f, 100.0f),
-	m_vec(8.0f, 0.0f)
+	m_vec(8.0f, 0.0f),
+	m_isPlayerShot(false)
 {
 }
 
@@ -42,6 +43,13 @@ void Shot::draw()
 
 bool Shot::isCol(Enemy& enemy)
 {
+	//“G‚ÌŒ‚‚Á‚½’e‚Í“G‚É“–‚½‚ç‚È‚¢
+	if (!m_isPlayerShot) return false;
+
+	//‘¶Ý‚µ‚È‚¢“GA‘¶Ý‚µ‚È‚¢’e‚Í“–‚½‚ç‚È‚¢
+	if (!m_isExist) return false;
+	if (!enemy.isExist()) return false;
+
 	float shotWidth  = 0;
 	float shotHeight = 0;
 	GetGraphSizeF(m_handle, &shotWidth, &shotHeight);
@@ -53,18 +61,13 @@ bool Shot::isCol(Enemy& enemy)
 
 	float enemyLeft    = enemy.getPos().x;
 	float enemyTop     = enemy.getPos().y;
-	float enemyRight   = enemy.getColWidth();
-	float enemyBottom  = enemy.getColHeight();
+	float enemyRight   = enemy.getPos().x + enemy.getColWidth();
+	float enemyBottom  = enemy.getPos().y + enemy.getColHeight();
 
 	if (enemyLeft > shotRight) return false;
 	if (enemyTop > shotBottom) return false;
 	if (enemyRight < shotLeft) return false;
 	if (enemyBottom < shotTop) return false;
-
-
-	if (!m_isExist) return false;
-
-
 
 
 

@@ -80,7 +80,7 @@ void Player::update()
 	{
 		if (m_pMain && (m_shotInterval <= 0))
 		{
-			m_pMain->createShot(m_pos);
+			m_pMain->createShot(m_pos, true);
 		}
 	}
 	m_pos += m_vec;
