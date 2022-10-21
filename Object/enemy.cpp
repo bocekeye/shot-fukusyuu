@@ -36,5 +36,6 @@ void Enemy::update()
 
 void Enemy::draw()
 {
-	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
+//	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
+	DrawTurnGraphF(m_pos.x, m_pos.y, m_handle, true);
 }

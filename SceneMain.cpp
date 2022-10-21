@@ -17,9 +17,11 @@ void SceneMain::init()
 	m_hPlayerGraphic = LoadGraph("data/player.bmp");
 	m_hShotGraphic = LoadGraph("data/shot.bmp");
 
+	m_player.setMain(this);
 	m_player.setHandle(m_hPlayerGraphic);
 	m_player.init();
-
+	
+	
 	m_enemy.setHandle(m_hPlayerGraphic);
 	m_enemy.init();
 
@@ -64,5 +66,17 @@ void SceneMain::draw()
 	for (auto& shot : m_shot)
 	{
 		shot.draw();
+	}
+}
+bool SceneMain::createShot(Vec2 pos)
+{
+	for (auto& shot : m_shot)
+	{
+		if (!shot.isExist())
+		{
+			shot.start(pos);
+			return true;
+		}
+		return false;
 	}
 }
