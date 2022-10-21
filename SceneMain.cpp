@@ -77,6 +77,6 @@ bool SceneMain::createShot(Vec2 pos)
 			shot.start(pos);
 			return true;
 		}
-		return false;
 	}
+	return false;
 }
