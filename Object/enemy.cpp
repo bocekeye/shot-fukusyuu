@@ -39,3 +39,18 @@ void Enemy::draw()
 //	DrawGraphF(m_pos.x, m_pos.y, m_handle, true);
 	DrawTurnGraphF(m_pos.x, m_pos.y, m_handle, true);
 }
+
+float Enemy::getColWidth() //¶ã‚ÌÀ•W‚Ìæ“¾
+{
+	float tempX = 0;
+	float tempY = 0;
+	GetGraphSizeF(m_handle, &tempX, &tempY);
+	return tempX;
+}
+float Enemy::getColHeight() //‰E‰º‚ÌÀ•W‚Ìæ“¾
+{
+	float tempX = 0;
+	float tempY = 0;
+	GetGraphSizeF(m_handle, &tempX, &tempY);
+	return tempY;
+}
